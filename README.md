@@ -1,4 +1,4 @@
-# Unytics BigFunctions
+# Unytics Apps
 
 This folder contains the catalog of functions used by Unytics.
 
