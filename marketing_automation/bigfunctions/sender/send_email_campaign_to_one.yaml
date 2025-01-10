@@ -1,0 +1,32 @@
+type: function_sql
+author: Paul Marcombes
+description: Send mail using Unytics Gmail account
+arguments:
+  - name: campaign_id
+    type: string
+  - name: to
+    type: string
+output:
+  name: success
+  type: BOOL
+examples:
+  - description: ""
+    arguments:
+      - "'https://api.github.com/repos/unytics/bigfunctions'"
+      - "null"
+    output: "{...}"
+code: |
+  (
+    select
+      unytics.sender.send_mail(
+        `to`,
+        campaign.subject,
+        campaign.email_template,
+        null,
+        null
+      )
+    from unytics.sender.campaigns as campaign
+    where id = campaign_id
+  )
+project: unytics
+dataset: sender
